@@ -5,6 +5,7 @@ let router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const { status, data } = await axios.get(process.env.USER_END_POINT);
+    console.log(`response status is ${status}`);
     res.setHeader("content-type", "application/json");
     res.status(status).send({ success: true, data });
   } catch (err) {
